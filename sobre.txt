@@ -1,0 +1,61 @@
+CUIDADO: O projeto não possui Validação de Extensão.
+
+-------------- Pré requisitos --------------
+Python3
+Ollama
+
+Modelos IA:
+$    ollama run moondream
+$    ollama run qwen3.5:2b
+
+Ambiente virtual:
+$    python -m venv venv
+$    source venv/bin/activate
+
+Instalação na venv:
+$    pip install fastapi uvicorn ollama python-multipart
+
+Inicialização:
+$   python leitorImagem.py
+
+-------------- Pacotes --------------
+
+>>> import os
+    Operações direto no sistema operacional: os.makedirs/os.path.join/os.remove;
+
+>>> import shutil
+    Operações em arquivos de alto nivel, utilidade de arquivos, mover, deletar, copiar: shutil.copyfileobj;
+
+>>> from fastapi import FastAPI, UploadFile, File
+    FastAPI: classe que cria o aplicativo web - define as rotas;
+    UploadFIle: representa o arquivo e seus metadados, como nome e tamanho;
+    File: Indica que a função está esperando receber um arquivo, não um texto;
+
+>>> from fastapi.responses import HTMLResponse
+    Renderiza o HTML (O FastAPI por padrão tenta devolver dados puros, como JSON);
+
+>>> from fastapi.staticfiles import StaticFiles
+    Gerenciador do "static" (o FastAPI por padrão bloqueia o acesso direto aos arquivos);
+
+>>> import ollama
+    Pacote para manipular o modelo de IA;
+
+>>> import uvicorn
+    Escuta de porta de rede;
+
+-------------- Rotas --------------
+
+>>> @app.get("/")
+
+>>> @app.post("/analisar")
+
+-------------- Usando a IA --------------
+
+resposta = ollama.chat(
+    model="{modelo_IA}",
+    messages=[{
+        "role": "user",
+        "content": "[Mensagem]",
+        "images": [Imagem] *opcional*
+    }]
+)
