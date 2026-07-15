@@ -31,7 +31,7 @@ async def analisar_imagem(file: UploadFile = File(...)):
                 model="moondream",
                 messages=[{
                     "role": "user",
-                    "content": "Describe this image in few details. minimum 3 phrases and maximum 5 phrases",
+                    "content": "Describe this image in few details.",
                     "images": [conteudo_imagem]
                 }],
                 options={
